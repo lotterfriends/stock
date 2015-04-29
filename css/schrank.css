@@ -1,0 +1,74 @@
+/* ls-only: large screen only */
+/* ss-only: small screen only */
+
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+.table-actions {
+  display: none;
+}
+
+.iconcell {
+	width: 20px;
+}
+
+tr.odd {
+	background-color: #f9f9f9;
+}
+
+.loading-icon-link {
+	background: url('../images/icon-loader.gif') 0 0 no-repeat;
+	background-size: 100%;
+}
+
+.btn-category.active {
+	color: #ffffff;
+	background-color: #ae3910;
+	border-color: #a5360f;
+}
+
+.btn-category {
+	margin: .2em;
+}
+
+.pagination-holder {
+	text-align: center;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+@media screen and (max-width: 768px) {
+
+	.ls-only {
+		display: none;
+	}
+
+
+
+
+}
+
+@media screen and (min-width: 769px) {
+	.ss-only {
+		display: none;
+	}
+
+	.container table>tbody>tr>td .glyphicon {
+		visibility: hidden;
+	}
+
+	.container table>tbody>tr:hover>td .glyphicon {
+		visibility: visible;
+	}  
+
+}

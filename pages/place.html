@@ -1,0 +1,69 @@
+<h3><a href="?page=places">Orte</a> \ <span class="emojisupport">{placeName}</span> <!-- <span class="badge">{count}</span> --> <a style="float:right;" href="?page=addThingPlaces&amp;placeId={placeId}" class="btn btn-primary">+</a></h3>
+<br>
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th class="iconcell ss-only"></th>
+			<th class="iconcell">∑</th>
+			<th>Name</th>
+			<th class="iconcell ls-only"></th>
+			<th class="iconcell ls-only"></th>
+			<th class="iconcell ls-only"></th>
+			<th class="iconcell ls-only"></th>
+		</tr>
+	</thead>
+	<tbody>
+		<!--START:THINGS!-->
+		<tr class="remoteContainer">
+			<td class="ss-only iconcell"><i class="glyphicon glyphicon-expand"></i></td>
+			<td class="iconcell remoteCounter">{count}</td>
+			<td class="emojisupport">{name}</td>
+			
+			<td class="ls-only">
+				<a class="remoteAction" data-success-action="remove" href="?action=deleteThing&amp;id={id}&amp;placeId={placeId}">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</td>
+
+			<td class="ls-only">
+				<a href="?page=editThingPlaces&amp;thingId={id}&amp;placeId={placeId}">
+					<i class="glyphicon glyphicon-pencil"></i>
+				</a>
+			</td>
+
+			<td class="iconcell ls-only">
+				<a class="remoteAction" data-success-action="increase" href="?action=increaseCount&amp;thingId={id}">
+					<i class="glyphicon glyphicon-plus-sign"></i>
+				</a>
+			</td>
+
+			<td class="iconcell ls-only">
+				<a class="remoteAction" data-success-action="decrease" href="?action=decreaseCount&amp;thingId={id}">
+					<i class="glyphicon glyphicon-minus-sign"></i>
+				</a>
+			</td>
+		</tr>
+
+		<tr class="table-actions info remoteContainer">
+			<td colspan="3">
+				
+				<a class="btn btn-default remoteAction" data-success-action="remove" href="?action=deleteThing&amp;id={id}&amp;placeId={placeId}">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a> 
+				
+				<a class="btn btn-default" href="?page=editThingPlaces&amp;thingId={id}&amp;placeId={placeId}">
+					<i class="glyphicon glyphicon-pencil"></i>
+				</a>
+				
+				<a class="btn btn-default remoteAction" data-success-action="increase" href="?action=increaseCount&amp;thingId={id}">
+					<i class="glyphicon glyphicon-plus-sign"></i>
+				</a> 
+				
+				<a class="btn btn-default remoteAction" data-success-action="decrease" href="?action=decreaseCount&amp;thingId={id}">
+					<i class="glyphicon glyphicon-minus-sign"></i>
+				</a>
+			</td>
+		</tr>
+		<!--END:THINGS!-->
+	</tbody>
+</table>

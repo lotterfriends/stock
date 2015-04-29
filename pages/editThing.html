@@ -1,0 +1,45 @@
+<h3 class="emojisupport">{breadcrumb}</h3>
+<form class="" action="?action=saveThing{target}" method="post">
+  <input type="hidden" name="placeId" value="{placeId}">
+  <input type="hidden" name="thingId" value="{thingId}">
+  <div class="form-group">
+	  <label for="name" class="">Name</label>
+  	<input required type="text" name="name" class="form-control" id="name" value="{thingName}" placeholder="Name">
+    <span class="help-block with-errors"></span>
+  </div>
+  
+  <div class="form-group">
+	  <label for="count" class="">Menge</label>
+    <div class="input-group">
+  	 <input type="number" name="count" class="form-control" value="{thingCount}" id="count" placeholder="Menge">
+     <div class="input-group-btn">
+      <a class="btn btn-primary decreaseCount" href="#"><i class="glyphicon glyphicon-minus-sign"></i></a>
+      <a class="btn btn-primary increaseCount" href="#"><i class="glyphicon glyphicon-plus-sign"></i></a>
+     </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+  	<label for="targetPlaceId" class="">Ort</label>
+    <select name="targetPlaceId" id="targetPlaceId" class="form-control">
+      <!--START:PLACES!-->
+      <option {selected} value="{id}" class="emojisupport">{name}</option>
+      <!--END:PLACES!-->
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="count" class="">Kategorien</label>
+    <div>
+      <!--START:CATEGORIES!-->
+      <a href="" class="btn btn-default btn-category" data-category-id="{id}" data-toggle="button" aria-pressed="false" autocomplete="off">{name} <i class="glyphicon"></i></a>
+      <!--END:CATEGORIES!-->
+      <input type="hidden" name="categories" value="{categories}">
+    </div>
+  </div>
+
+  <p class="text-right">
+    <a href="javascript:history.back()" class="btn btn-link">zurück</a>
+    <button type="submit" class="btn btn-success">~ ändern</button>
+  </p>
+</form>
