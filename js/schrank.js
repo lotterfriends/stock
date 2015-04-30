@@ -9,7 +9,6 @@ $(document).ready(function() {
 
 		$('.container table > tbody > tr').removeClass('odd');
 		$('.container table > tbody > tr:visible:odd').addClass('odd');
-		// $('.container table > tbody > tr:visible:even').css('background', '#FFFFFF');
 	}
 
 	colorTable();
@@ -39,22 +38,6 @@ $(document).ready(function() {
 			}
 		});
 	});
-
-
-
-	// $('table tr td a:not(.delete)').on('click', function(e) {
-	// 	e.stopPropagation();
-	// 	location.href = $(this).attr('href');
-	// 	return false;
-	// });
-
-	// $('table tr td a.delete').on('click', function(e) {
-	// 	if (confirm('Wirklich löschen?')) {
-	// 		location.href = $(this).attr('href');
-	// 	}
-	// 	e.stopPropagation();
-	// 	return false;
-	// });
 
 	$('.decreaseCount').on('click', function(e) {
 		var input = $(this).closest('.input-group').find('#count');
