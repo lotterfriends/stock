@@ -5,13 +5,11 @@ function redirect($url) {
 }
 
 function cleanGet($get_var) {
-	if (isset($_GET[$get_var]) && trim($_GET[$get_var]) != "") return cleanInput($_GET[$get_var]);
-	return '';
+	return (isset($_GET[$get_var]) && trim($_GET[$get_var]) != "") ? cleanInput($_GET[$get_var]) : '';
 }
 
 function cleanPost($post_var) {
-	if (isset($_POST[$post_var]) && trim($_POST[$post_var]) != '') return cleanInput($_POST[$post_var]);
-	return '';
+	return (isset($_POST[$post_var]) && trim($_POST[$post_var]) != '') ? cleanInput($_POST[$post_var]) : '';
 }
 
 function cleanInput($input) {
