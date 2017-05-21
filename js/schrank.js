@@ -147,7 +147,9 @@ $(document).ready(function() {
 			if (successAction == 'increase') {
 				$counter.text(counterValue + 1);
 			} else if (successAction == 'decrease') {
-				$counter.text(parseInt($counter.text(), 10) - 1);
+				if (counterValue >= 1) {
+					$counter.text(counterValue - 1);
+				}
 				if (counterValue <= 1) {
 					if (confirm('Eintrag löschen?')) {
 						$remoteContainer.addClass('forceDelete');

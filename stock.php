@@ -447,9 +447,13 @@ function decreaseCount() {
 	$id = cleanGet('thingId');
 	$currentCount = floatval(getThingCount($id));
 	$newCount = $currentCount - 1;
-	createHistoryEntry(getThingName($id) ." wurde von " . $currentCount . " auf ". $newCount . " verringert", 'thing', $id);
-	mysql_query("UPDATE thing SET count = '$newCount' WHERE id = $id");
-	die($newCount);
+	if ($newCount >= 0) {
+		createHistoryEntry(getThingName($id) ." wurde von " . $currentCount . " auf ". $newCount . " verringert", 'thing', $id);
+		mysql_query("UPDATE thing SET count = '$newCount' WHERE id = $id");
+		die($newCount);
+	} else {
+		die(0);
+	}
 }
 
 function increaseCount() {
