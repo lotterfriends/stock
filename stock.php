@@ -128,9 +128,14 @@ function showAllThings() {
 
 function addThing($active, $breadcrumb, $category = false) {
 	$view = new Template('addThing.html', true);
-	$view->setContent('PLACES', getAllPlaces());
+	$places = getAllPlaces();
+	$view->setContent('PLACES', $places);
 	$view->setContent('CATEGORIES', getAllCategories());
-	$view->setOne('placeId', cleanGet('placeId'));
+	$placeId = cleanGet('placeId');
+	if ($placeId === '' && count($places) > 0) {
+		$placeId = $places[0]['id'];
+	}
+	$view->setOne('placeId', $placeId);
 	$view->setOne($active, 'active');
 	$view->setOne('breadcrumb', $breadcrumb);
 	if (!$category) $category = '';

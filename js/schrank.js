@@ -3,6 +3,13 @@ String.prototype.ltrim=function(){return this.replace(/^\s+/,'');};
 String.prototype.rtrim=function(){return this.replace(/\s+$/,'');};
 String.prototype.fulltrim=function(){return this.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g,'').replace(/\s+/g,' ');};
 
+var updatePlace = function(input) {
+	var $input = $(input);
+	console.log($input.val());
+	var $form = $input.closest('form');
+	$form.attr('action', $form.attr('action').replace(/(placeId=)\d*/mg, '$1' + $input.val()));
+};
+
 $(document).ready(function() {
 
 	function colorTable() {

@@ -22,7 +22,7 @@
   
   <div class="form-group">
   	<label for="targetPlaceId" class="">Ort</label>
-  	<select required name="targetPlaceId" id="targetPlaceId" class="form-control">
+  	<select required name="targetPlaceId" id="targetPlaceId" class="form-control" onchange="updatePlace(this)">
   		<!--START:PLACES!-->
   		<option {selected} value="{id}" class="emojisupport">{name}</option>
   		<!--END:PLACES!-->
