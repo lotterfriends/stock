@@ -53,8 +53,9 @@ input::-webkit-inner-spin-button {
 		display: none;
 	}
 
-
-
+	.remoteContainer.active + .table-actions {
+		display: table-row;
+	}
 
 }
 

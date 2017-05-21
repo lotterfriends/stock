@@ -39,7 +39,6 @@ $(document).ready(function() {
 			var $row = $(this);
 			$row.find('.glyphicon-expand').toggleClass('glyphicon-collapse-down');
 			$row.toggleClass('active');
-			$actionRow.toggle();
 			if (!$target.hasClass('navigationLink')) {
 				return false;
 			}
