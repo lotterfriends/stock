@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `places` (
 CREATE TABLE IF NOT EXISTS `thing` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
-  `count` int(9) NOT NULL DEFAULT '1',
+  `count` double NOT NULL DEFAULT '1',
   `placeId` int(9) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=115 ;

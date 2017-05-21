@@ -196,7 +196,7 @@ function showThingsForPlace() {
 function getThingCountForPlace($placeId) {
 	$results = mysql_query("SELECT SUM(count) AS total FROM thing WHERE placeId = $placeId");
 	$data = mysql_fetch_assoc($results);
-	$total = (int) $data['total'];
+	$total = floatval($data['total']);
 	return $total;
 }
 
@@ -259,7 +259,7 @@ function saveThing() {
 	global $action;
 	if ($action != 'saveThing') return;
 	$name = cleanPost('name');
-	$count = (int) cleanPost('count');
+	$count = floatval(cleanPost('count'));
 	$place = cleanPost('targetPlaceId');
 	$id = cleanPost('thingId');
 	$categoriesArray = array();
@@ -445,20 +445,23 @@ function decreaseCount() {
 	global $action;
 	if ($action != 'decreaseCount') return;
 	$id = cleanGet('thingId');
-	$currentCount = (int) getThingCount($id);
-	createHistoryEntry(getThingName($id) ." wurde von " . $currentCount . " auf ". ($currentCount - 1) . " verringert", 'thing', $id);
-	mysql_query("UPDATE thing SET count = count - 1 WHERE id = $id");
-	die();
+	$currentCount = floatval(getThingCount($id));
+	$newCount = $currentCount - 1;
+	createHistoryEntry(getThingName($id) ." wurde von " . $currentCount . " auf ". $newCount . " verringert", 'thing', $id);
+	mysql_query("UPDATE thing SET count = '$newCount' WHERE id = $id");
+	die($newCount);
 }
 
 function increaseCount() {
 	global $action;
 	if ($action != 'increaseCount') return;
 	$id = cleanGet('thingId');
-	$currentCount = (int) getThingCount($id);
-	createHistoryEntry(getThingName($id) ." wurde von " . $currentCount . " auf ". ($currentCount + 1) . " erhöht", 'thing', $id);
-	mysql_query("UPDATE thing SET count = count + 1 WHERE id = $id");
-	die();
+	$currentCount = floatval(getThingCount($id));
+	$newCount = $currentCount + 1;
+	createHistoryEntry(getThingName($id) ." wurde von " . $currentCount . " auf ". $newCount . " erhöht", 'thing', $id);
+	echo "UPDATE thing SET count = '$newCount' WHERE id = $id";
+	mysql_query("UPDATE thing SET count = '$newCount' WHERE id = $id");
+	die($newCount);
 }
 
 function getThingsInCategoryCounter($categoryId){
@@ -609,7 +612,7 @@ function showHistory() {
 	$entriesPerPage = 20;
 	$i = 0;
 	$countData = mysql_fetch_assoc(mysql_query("SELECT COUNT(id) as total FROM history;"));
-	$total = (int) $countData['total'];
+	$total = floatval($countData['total']);
 	$pages = ceil($total / $entriesPerPage);
 	if ($pages > 25) $pages = 25;
 	$setArray = array();

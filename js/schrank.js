@@ -48,14 +48,14 @@ $(document).ready(function() {
 
 	$('.decreaseCount').on('click', function(e) {
 		var input = $(this).closest('.input-group').find('#count');
-		var value = parseInt(input.val(), 10);
+		var value = parseFloat(input.val(), 10);
 		if (value <= 0) return;
 		input.val(value - 1);
 	});
 
 	$('.increaseCount').on('click', function(e) {
 		var input = $(this).closest('.input-group').find('#count');
-		input.val(parseInt(input.val(), 10) + 1);
+		input.val(parseFloat(input.val(), 10) + 1);
 	});
 
 
@@ -70,7 +70,9 @@ $(document).ready(function() {
 		});
 	}
 
-	$('form').validator().on('submit', function (e) {
+	$('form').validator({
+		focus: true
+	}).on('submit', function (e) {
 		if (e.isDefaultPrevented()) {
 			return false;
 	 	} else {
@@ -135,14 +137,14 @@ $(document).ready(function() {
 					$link.removeClass('loading-icon-link');
 				}
 			}
-		}, function() {
+		}, function(response) {
 			var $counter;
 			if ($remoteContainer.hasClass('table-actions')) {
 				$counter = $remoteContainer.prev('tr').find('.remoteCounter');
 			} else {
 				$counter = $remoteContainer.find('.remoteCounter');
 			}
-			var counterValue = parseInt($counter.text(), 10);
+			var counterValue = parseFloat($counter.text(), 10);
 			if (successAction == 'increase') {
 				$counter.text(counterValue + 1);
 			} else if (successAction == 'decrease') {
