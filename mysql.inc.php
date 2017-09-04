@@ -1,11 +1,9 @@
 <?php
 
-$online = (getenv('REMOTE_ADDR') != '127.0.0.1');
+$online = (getenv('REMOTE_ADDR') !== '127.0.0.1' && getenv('REMOTE_ADDR') !== '::1');
 
 // $online = false;
-
 if ($online) {
-
 	// Datenbank Host
 	
 	$sql_host = "localhost";
@@ -23,7 +21,6 @@ if ($online) {
 	$sql_passwort = "";
 
 } else {
-
 	// Datenbank Host
 	
 	$sql_host = "localhost";

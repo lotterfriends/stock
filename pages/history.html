@@ -15,13 +15,13 @@
 			<td colspan="2" class="pagination-holder">	
 				<nav>
   					<ul class="pagination">
-  						<li><a href="?page=history&amp;from={prev}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+  						<li class="page-item"><a class="page-link" href="?page=history&amp;from={prev}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
 						
 						<!--START:COUNTER!-->
-						<li class="{active}"><a href="?page=history&amp;from={from}">{current}</a></li>
+						<li class="page-item {active}"><a class="page-link" href="?page=history&amp;from={from}">{current}</a></li>
 						<!--END:COUNTER!-->
 
-						<li><a href="?page=history&amp;from={next}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
+						<li class="page-item"><a class="page-link" href="?page=history&amp;from={next}" aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>
 				  </ul>
 				</nav>
 			</td>

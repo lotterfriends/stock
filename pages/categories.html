@@ -1,4 +1,4 @@
-<h3>Kategorien <a style="float:right;" href="?page=addCategory" class="btn btn-primary">+</a></h3>
+<h3>Kategorien <a style="float:right;" href="?page=addCategory" class="btn btn-sm btn-primary">+</a></h3>
 
 <table class="table table-hover">
 	<thead>
@@ -13,24 +13,24 @@
 	<tbody>
 		<!--START:CATEGORIES!-->
 		<tr class="remoteContainer">
-			<td class="ss-only iconcell"><i class="glyphicon glyphicon-expand"></i></td>
+			<td class="ss-only iconcell"><i class="oi oi-fullscreen-enter"></i></td>
 			<td class="iconcell">{content}</td>
 			<td>
 				<a href="?page=showCategory&amp;categoryId={id}" class="navigationLink emojisupport">{name}</a>
 			</td>
 			<td class="ls-only iconcell">
 				<a class="remoteAction" data-success-action="remove" href="?action=deleteCategory&amp;categoryId={id}">
-					<i class="glyphicon glyphicon-trash"></i>
+					<span class="oi oi-trash"></span>
 				</a>
 			</td>
 			<td class="ls-only iconcell">
-				<a href="?page=editCategory&amp;categoryId={id}"><i class="glyphicon glyphicon-pencil"></i></a>
+				<a href="?page=editCategory&amp;categoryId={id}"><i class="oi oi-pencil"></i></a>
 			</td>
 		</tr>
 		<tr class="table-actions remoteContainer info">
 			<td colspan="3">
-				<a class="btn btn-default remoteAction" data-success-action="remove" href="?action=deleteCategory&amp;categoryId={id}"><i class="glyphicon glyphicon-trash"></i></a> 
-				<a class="btn btn-default" href="?page=editCategory&amp;categoryId={id}"><i class="glyphicon glyphicon-pencil"></i></a>
+				<a class="btn btn-default remoteAction" data-success-action="remove" href="?action=deleteCategory&amp;categoryId={id}"><span class="oi oi-trash"></span></a> 
+				<a class="btn btn-default" href="?page=editCategory&amp;categoryId={id}"><i class="oi oi-pencil"></i></a>
 			</td>
 		</tr>
 		<!--END:CATEGORIES!-->
